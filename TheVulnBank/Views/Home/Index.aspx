@@ -7,7 +7,7 @@
 <p>Welcome to le bank</p>
 
 <% if (ViewData["IsAuthenticated"].ToString() == "True") { %>
-    <a href="<%: Url.Action("Index", "Accounts") %>">Show accounts</a>
+    <a href="<%: Url.Action("Index", "Money") %>">Show accounts</a>
 <% } else { %>
     <a href="<%: Url.Action("Index", "Login") %>">Login</a>
 <% } %>

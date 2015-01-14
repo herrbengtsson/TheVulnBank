@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MoneyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -125,8 +125,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\TheVulnBank.sdf" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Account\Index.aspx" />
-    <Content Include="Views\Account\Transfers.aspx" />
+    <Content Include="Views\Money\Index.aspx" />
+    <Content Include="Views\Money\Transfers.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
     <Content Include="Web.config" />

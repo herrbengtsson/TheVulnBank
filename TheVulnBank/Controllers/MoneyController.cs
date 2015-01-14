@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace TheVulnBank.Controllers
 {
-    public class AccountController : BaseController
+    public class MoneyController : BaseController
     {
         //
         // GET: /Account/

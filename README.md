@@ -29,10 +29,12 @@ No HttpOnly or Secure :)
 Search transactions
 ### Testing for Stored Cross Site Scripting (OTG-INPVAL-002)
 Add new account
+Customer service
 ### DOM XSS
 ??
 
 ## A4 Insecure Direct Object References
+Articles, financial reports
 
 ## A5 Security Misconfiguration
 
@@ -44,8 +46,8 @@ Weak hash on passwords?
 
 ## A8 Cross-Site Request Forgery (CSRF)
 ### Testing for Cross Site Request Forgery (CSRF) (OTG-SESS-005)
-No CSRF-token on new payment
-  
+No CSRF-token at all
+
 ## A9 Using Components with Known Vulnerabilities
 
 ## A10 Unvalidated Redirects and Forwards
