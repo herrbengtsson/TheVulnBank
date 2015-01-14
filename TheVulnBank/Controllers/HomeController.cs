@@ -13,6 +13,8 @@ namespace TheVulnBank.Controllers
 
         public ActionResult Index()
         {
+            ViewData["IsAuthenticated"] = isAuthenticated;
+            ViewData["UserId"] = userId;
             return View();
         }
 

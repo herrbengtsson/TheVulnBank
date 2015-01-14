@@ -4,6 +4,12 @@
 
 <h2>Index</h2>
 
-Welcome to le bank
+<p>Welcome to le bank</p>
+
+<% if (ViewData["IsAuthenticated"].ToString() == "True") { %>
+    <a href="<%: Url.Action("Index", "Accounts") %>">Show accounts</a>
+<% } else { %>
+    <a href="<%: Url.Action("Index", "Login") %>">Login</a>
+<% } %>
 
 </asp:Content>

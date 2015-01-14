@@ -11,15 +11,34 @@ using System.Web.Mvc;
 
 namespace TheVulnBank.Controllers
 {
-    public class LoginController : BaseController
+    public class AccountController : BaseController
     {
         //
-        // GET: /Login/
+        // GET: /Account/
         [HttpGet]
         public ActionResult Index()
         {
-            TempData.Add("Message", "GET");
-            return View();
+            if (isAuthenticated)
+            {
+                AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+                List<Account> accounts = accountRepository.ListAccounts(userId);
+                return View(accounts);
+            }
+            return RedirectToAction("Index", "Login");
+        }
+
+        //
+        // GET: /Account/Transfers/{id}
+        [HttpGet]
+        public ActionResult Transfers(int accountId)
+        {
+            if (isAuthenticated)
+            {
+                AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+                List<Transfer> transfers = accountRepository.ListTransfers(accountId);
+                return View(transfers);
+            }
+            return RedirectToAction("Index", "Login");
         }
 
         //
@@ -77,67 +96,47 @@ namespace TheVulnBank.Controllers
 
     }
 
-    public class User
+    public class Account
     {
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public int UserId { get; set; }
+        public double Amount { get; set; }
     }
 
-    public class UserRepository
+    public class Transfer
+    {
+        public int Id { get; set; }
+        public int SendAccId { get; set; }
+        public int RecAccId { get; set; }
+        public double Amount { get; set; }
+        public string Message { get; set; }
+    }
+
+    public class AccountRepository
     {
 
         private SqlCeConnection connection;
 
-        public UserRepository(SqlCeConnection connection) 
+        public AccountRepository(SqlCeConnection connection) 
         {
             this.connection = connection;
         }
 
-        public bool UserExists(string username)
+        public List<Account> ListAccounts(int userId)
         {
-            bool result = false;
+            List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id FROM Users WHERE Username='" + username + "';", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, Amount FROM Accounts WHERE UserId='" + userId + "';", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
-                result = reader.Read();
-                reader.Close();
-                this.connection.Close();
-            }
-            return result;
-        }
-
-        public bool LoginUser(string username, string password)
-        {
-            bool result = false;
-            //using (this.connection)
-            {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id FROM Users WHERE Username='" + username + "' AND Password='" + CalculateMD5Hash(password) + "';", this.connection);
-                this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
-                result = reader.Read();
-                reader.Close();
-                this.connection.Close();
-            }
-            return result;
-        }
-
-        public User GetUser(string username)
-        {
-            User result = new User();
-            //using (this.connection)
-            {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, Username, Password FROM Users WHERE Username='" + username + "';", this.connection);
-                this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
-                if (reader.Read()) {
-                    result = new User
+                while (reader.Read())
+                {
+                    result.Add(new Account
                     {
                         Id = reader.GetInt32(0),
-                        Username = reader.GetString(1)
-                    };
+                        Amount = reader.GetDouble(1),
+                    });
                 }
                 reader.Close();
                 this.connection.Close();
@@ -145,21 +144,40 @@ namespace TheVulnBank.Controllers
             return result;
         }
 
-        // http://blogs.msdn.com/b/csharpfaq/archive/2006/10/09/how-do-i-calculate-a-md5-hash-from-a-string_3f00_.aspx
-        private string CalculateMD5Hash(string input)
+        public List<Transfer> ListTransfers(int accountId)
         {
-            // step 1, calculate MD5 hash from input
-            MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hash = md5.ComputeHash(inputBytes);
-
-            // step 2, convert byte array to hex string
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
+            List<Transfer> result = new List<Transfer>();
+            //using(this.connection) 
             {
-                sb.Append(hash[i].ToString("X2"));
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, SendAccId, RecAccId, Amount, Message FROM Transfers WHERE SendAccId='" + accountId + "' OR RecAccId='" + accountId + "';", this.connection);
+                this.connection.Open();
+                SqlCeDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    result.Add(new Transfer
+                    {
+                        Id = reader.GetInt32(0),
+                        SendAccId = reader.GetInt32(1),
+                        RecAccId = reader.GetInt32(2),
+                        Amount = reader.GetDouble(3),
+                        Message = reader.GetString(4),
+                    });
+                }
+                reader.Close();
+                this.connection.Close();
             }
-            return sb.ToString();
+            return result;
+        }
+
+        public void AddTransfers(int sendAccId, int recAccId, double amount, string message)
+        {
+            //using(this.connection) 
+            {
+                SqlCeCommand command = new SqlCeCommand("INSERT INTO Transfers (SendAccId, RecAccId, Amount, Message) VALUES (" + sendAccId + ", " + recAccId +  ", " + amount + ", '" + message + "');", this.connection);
+                this.connection.Open();
+                command.ExecuteNonQuery();
+                this.connection.Close();
+            }
         }
 
     }
