@@ -9,7 +9,6 @@ h1 {
 }
 
 h2 {
-    color:white;
     margin:0;
     padding:0;
 }
@@ -68,7 +67,7 @@ body {
     position:relative;
 }
 
-.site-search {
+.small-search {
     position: absolute;
     float: right;
     margin-right: 8px;
@@ -79,39 +78,56 @@ body {
     right: 0;
 }
 
-.site-search:before {
+.large-search {
+    position: absolute;   
+    margin-right: 8px;
+    height: 25px;
+    margin-top: 15px;
+    width: auto;
+}
+
+.small-search:before, .large-search:before {
     color: #005284;
     position: absolute;
     left: 6px;
     top: 6px;
 }
 
-.site-search input {
+.small-search input {
     float: left;
-    padding: 3px 3px 4px 3px;
+    padding: 3px 3px 3px 3px;
     padding-left: 20px;
     width: 150px;
-    height: 24px;
-    -webkit-box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.3);
     box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.3);
     border-radius: 3px 0 0 3px;
 }
 
-.site-search button {
+.large-search input {
+    padding: 3px 3px 3px 3px;
+    padding-left: 20px;
+    width: 300px;
+    box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.3);
+    border-radius: 3px 0 0 3px;
+}
+
+.small-search button, .large-search button {
     float: right;
-    background: #38789f;
-    background: -webkit-gradient(linear,50% 0%,50% 100%,color-stop(0%,#38789f),color-stop(100%,#194461));
-    background: -webkit-linear-gradient(#38789f,#194461);
-    background: -moz-linear-gradient(#38789f,#194461);
     background: linear-gradient(#38789f,#194461);
-    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#FF38789F',endColorstr='#FF194461');
     border: none;
     margin: 0;
     margin-left: -2px;
     padding: 5px 8px;
     color: #CCD8DE;
     border-radius: 0 3px 3px 0;
+}
+
+.search-box {
+    height: 55px;
+    margin-top: 10px;
+    padding:0 0 0 20px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    background: linear-gradient(#f2f2f2,#cccccc);
 }
 
 #site-content {
@@ -134,6 +150,7 @@ body {
 }
 
 .columns h2 {
+    color:#fff;
     padding:0 0 27px 0;
 }
 
@@ -172,7 +189,8 @@ body {
 
 #site-footer .disclaimer {
     margin:0;
-    padding:0 0 20px 20px;
+    padding: 0 20px 20px 20px;
+    float:right;
 }
 
 .container {

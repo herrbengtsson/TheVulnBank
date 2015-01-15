@@ -13,11 +13,12 @@
         <div id="site-header">
             <div class="container">
                 <h1>The VulnBank</h1>
-                <div class="site-search">
-                    <form action="/search.html" method="get" accesskey="s" accept-charset="utf-8">
+                <div class="small-search">
+                    <% using(Html.BeginForm("Index", "Search", FormMethod.Get)) %>
+                    <% { %>
                         <input type="search" name="q" value="">
                         <button type="submit">Sök</button>
-                    </form>
+                    <% } %>
                 </div>
             </div>
             <div class="header-menu">
@@ -30,12 +31,11 @@
                     <li>Kontakt</li>
                     <li class="login">Login</li>
                 </ul>
-            </div>            
+            </div>
         </div>
         <div id="site-content">
             <div class="container">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
-
                 </asp:ContentPlaceHolder>
             </div>
         </div>
@@ -45,16 +45,16 @@
                     <div class="columns">
                         <span>Important link 1</span>
                         <span>Important link 2</span>
-                        <span>Important link 3</span> 
+                        <span>Important link 3</span>
                         <br />
                         <ul>
                             <li>Kontakt 1:</li>
                             <li>Gustav Nyqvist</li>
                             <li>Knowit Secure</li>
-                            <li>072 7052040</li>
+                            <li>072-705 20 40</li>
                         </ul>
                     </div>
-                    <div class="columns"> 
+                    <div class="columns">
                         <span>Important link 1</span>
                         <span>Important link 2</span>
                         <span>...</span>
@@ -63,10 +63,10 @@
                             <li>Kontakt 2:</li>
                             <li>Gustav Nyqvist</li>
                             <li>Knowit Secure</li>
-                            <li>072 7052040</li>
+                            <li>072-705 20 40</li>
                         </ul>
                     </div>
-                    <div class="columns"> 
+                    <div class="columns">
                         <h2>About le Bank</h2>
                         <p>Testgatan 12</p>
                         <p>12271 Barnaby</p>
@@ -81,6 +81,9 @@
                 </div>
                 <hr />
                 <div class="disclaimer">Any resemblance to other bank sites is purely accidental</div>
+                <div class="clear">
+                    <!-- -->
+                </div>
             </div>
         </div>
     </div>
