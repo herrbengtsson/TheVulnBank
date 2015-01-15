@@ -3,23 +3,85 @@
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
+<head id="Head1" runat="server">
     <meta name="viewport" content="width=device-width" />
-    <title>The VulnBank</title>
+    <title>Le VulnBank</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/default.css">
 </head>
 <body>
-    <div id="container">
-        <div id="header">
-            <h1>The VulnBank</h1>
-
+    <div id="site-borders">
+        <div id="site-header">
+            <div class="container">
+                <h1>The VulnBank</h1>
+                <div class="site-search">
+                    <form action="/search.html" method="get" accesskey="s" accept-charset="utf-8">
+                        <input type="search" name="q" value="">
+                        <button type="submit">Sök</button>
+                    </form>
+                </div>
+            </div>
+            <div class="header-menu">
+                <ul>
+                    <li>Lån</li>
+                    <li>Sparande</li>
+                    <li>Pension</li>
+                    <li>Försäkringar</li>
+                    <li>Vardagstjänster</li>
+                    <li>Kontakt</li>
+                    <li class="login">Login</li>
+                </ul>
+            </div>            
         </div>
-        <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-            </asp:ContentPlaceHolder>
-        </div>
-        <div id="footer">
+        <div id="site-content">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
 
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="site-footer">
+            <div class="container">
+                <div class="footer-menu">
+                    <div class="columns">
+                        <span>Important link 1</span>
+                        <span>Important link 2</span>
+                        <span>Important link 3</span> 
+                        <br />
+                        <ul>
+                            <li>Kontakt 1:</li>
+                            <li>Gustav Nyqvist</li>
+                            <li>Knowit Secure</li>
+                            <li>072 7052040</li>
+                        </ul>
+                    </div>
+                    <div class="columns"> 
+                        <span>Important link 1</span>
+                        <span>Important link 2</span>
+                        <span>...</span>
+                        <br />
+                        <ul>
+                            <li>Kontakt 2:</li>
+                            <li>Gustav Nyqvist</li>
+                            <li>Knowit Secure</li>
+                            <li>072 7052040</li>
+                        </ul>
+                    </div>
+                    <div class="columns"> 
+                        <h2>About le Bank</h2>
+                        <p>Testgatan 12</p>
+                        <p>12271 Barnaby</p>
+                        <p>Telefon: 123-345 67 89</p>
+                        <p>E-post: test@test.ru</p>
+                        <p>Denna sajt är byggd i rent testsyfte...</p>
+                        <p>...och innehåller mängder av sårbarheter</p>
+                    </div>
+                    <div class="clear">
+                        <!-- -->
+                    </div>
+                </div>
+                <hr />
+                <div class="disclaimer">Any resemblance to other bank sites is purely accidental</div>
+            </div>
         </div>
     </div>
 </body>
