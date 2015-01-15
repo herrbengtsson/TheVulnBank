@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace TheVulnBank.Controllers
@@ -30,6 +26,8 @@ namespace TheVulnBank.Controllers
                     userId = int.Parse(request.Cookies["UserId"].Value);
                 }
             }
+
+            ViewData.Add("IsAuthenticated", isAuthenticated);
         }
 
     }

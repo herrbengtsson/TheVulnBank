@@ -42,6 +42,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -111,10 +114,12 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Filters\RequireLoginFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,6 +138,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\TheVulnBank.sdf" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\CSS\Default.css" />
+    <Content Include="Resources\Images\magnifier.png" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Account\Transfer.aspx" />
     <Content Include="Views\Account\Transfers.aspx" />
@@ -151,8 +158,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\CSS\" />
-    <Folder Include="Resources\Images\" />
     <Folder Include="Resources\JavaScript\" />
   </ItemGroup>
   <ItemGroup>

@@ -2,12 +2,37 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>View</h2>
+<h2>My profile</h2>
 
-<b>Username:</b> <%: Model.Username %><br />
-<b>First name:</b> <%: Model.FirstName %><br />
-<b>Last name:</b> <%: Model.LastName %><br />
+<table class="tiger-table table-first-column-bold">
+    <tbody>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <%: Model.Username %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                First name
+            </td>
+            <td>
+                <%: Model.FirstName %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last name
+            </td>
+            <td>
+                <%: Model.LastName %>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-<a href="<%: Url.Action("ChangePassword", "User") %>">Change password</a>
+<a href="<%: Url.Action("ChangePassword", "User") %>">Change my password</a>
 
 </asp:Content>

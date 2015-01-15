@@ -4,26 +4,26 @@
 
 <h2>Index</h2>
 
-<table>
+<table class="tiger-table">
     <thead>
         <tr>
             <th>
-                Id
-            </th>
-            <th>
-                User Id
+                Name
             </th>
             <th>
                 Amount
+            </th>
+            <th>
+                &nbsp;
             </th>
         </tr>
     </thead>
     <tbody>
     <% foreach (TheVulnBank.Models.Data.Account account in Model) {  %>
         <tr>
-            <td><a href="<%: Url.Action("Transfers", "Account", new { id = account.Id }) %>"><%: account.Id %></a></td>
-            <td><%: account.UserId %></td>
+            <td><%: account.Name %></td>
             <td><%: account.Amount %></td>
+            <td><%: Html.ActionLink("Show transfers", "Transfers", new { id = account.Id }) %></td>
         </tr>
     <% } %>
     </tbody>

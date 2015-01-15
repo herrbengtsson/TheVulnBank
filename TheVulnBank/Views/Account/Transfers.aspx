@@ -4,17 +4,17 @@
 
 <h2>Transfers</h2>
 
-<table>
+<table class="tiger-table">
     <thead>
         <tr>
             <th>
                 Id
             </th>
             <th>
-                From Account Id
+                From account
             </th>
             <th>
-                To Account Id
+                To account
             </th>
             <th>
                 Amount
@@ -28,8 +28,8 @@
     <% foreach (TheVulnBank.Models.Data.Transfer transfer in Model.Transfers) {  %>
         <tr>
             <td><%: transfer.Id %></td>
-            <td><%: transfer.SendAccId %></td>
-            <td><%: transfer.RecAccId %></td>
+            <td><%: Model.Accounts.First(a => a.Id == transfer.FromAccountId).Name %></td>
+            <td><%: Model.Accounts.First(a => a.Id == transfer.ToAccountId).Name %></td>
             <td><%: transfer.Amount %></td>
             <td><%: transfer.Message %></td>
         </tr>

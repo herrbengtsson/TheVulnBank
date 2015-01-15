@@ -21,7 +21,7 @@ namespace TheVulnBank.Repositories
             List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, Amount, Name FROM Accounts WHERE UserId='" + userId + "';", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, Amount, Name FROM Accounts WHERE UserId='" + userId + "' ORDER BY Name, Amount;", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -44,7 +44,7 @@ namespace TheVulnBank.Repositories
             List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Accounts.Id, Users.FirstName + ' ' + Users.LastName + ' - ' + Accounts.Name FROM Accounts LEFT OUTER JOIN Users ON Accounts.Id = Users.Id ORDER BY User.FirstName, User.LastName, Account.Name;", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Accounts.Id, Users.FirstName + ' ' + Users.LastName + ' - ' + Accounts.Name FROM Accounts LEFT OUTER JOIN Users ON Accounts.UserId = Users.Id ORDER BY Users.FirstName, Users.LastName, Accounts.Name;", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -74,8 +74,8 @@ namespace TheVulnBank.Repositories
                     result.Add(new Transfer
                     {
                         Id = reader.GetInt32(0),
-                        SendAccId = reader.GetInt32(1),
-                        RecAccId = reader.GetInt32(2),
+                        FromAccountId = reader.GetInt32(1),
+                        ToAccountId = reader.GetInt32(2),
                         Amount = reader.GetDouble(3),
                         Message = reader.GetString(4),
                     });

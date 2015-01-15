@@ -29,9 +29,17 @@
                     <li>Försäkringar</li>
                     <li>Vardagstjänster</li>
                     <li>Kontakt</li>
-                    <li class="login">Login</li>
+                    <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Log out", "Index", "Logout") : Html.ActionLink("Log in", "Index", "Login")) %></li>
                 </ul>
             </div>
+            <% if ((bool) ViewData["IsAuthenticated"]) { %>
+            <div class="header-sub-menu">
+                <ul>
+                    <li><%: Html.ActionLink("Accounts", "Index", "Account") %></li>
+                    <li><%: Html.ActionLink("Profile", "Index", "User") %></li>
+                </ul>
+            </div>
+            <% } %>
         </div>
         <div id="site-content">
             <div class="container">
@@ -43,9 +51,9 @@
             <div class="container">
                 <div class="footer-menu">
                     <div class="columns">
-                        <span>Important link 1</span>
-                        <span>Important link 2</span>
-                        <span>Important link 3</span>
+                        <span><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></span>
+                        <span><a href="https://www.owasp.org/index.php/OWASP_Testing_Project">OWASP Testing Guide</a></span>
+                        <span><a href="https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series">OWASP Cheat Sheets</a></span>
                         <br />
                         <ul>
                             <li>Kontakt 1:</li>
@@ -55,9 +63,9 @@
                         </ul>
                     </div>
                     <div class="columns">
-                        <span>Important link 1</span>
+                        <span><a href="http://knowitsecure.se/">Knowit Secure</a></span>
+                        <span><a href="https://www.owasp.org/index.php/East_Sweden">OWASP East Sweden</a></span>
                         <span>Important link 2</span>
-                        <span>...</span>
                         <br />
                         <ul>
                             <li>Kontakt 2:</li>

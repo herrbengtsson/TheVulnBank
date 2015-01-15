@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>ChangePassword</h2>
+<h2>Change my password</h2>
 
 <form action="<%: Url.Action("ChangePassword", "User") %>" method="post">
 

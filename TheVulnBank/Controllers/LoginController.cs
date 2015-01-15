@@ -1,30 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data.SqlServerCe;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using TheVulnBank.Repositories;
 using TheVulnBank.Models.Data;
+using TheVulnBank.Repositories;
 
 namespace TheVulnBank.Controllers
 {
     public class LoginController : BaseController
     {
-        //
-        // GET: /Login/
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        //
-        // POST: /Login/
         [HttpPost]
         public ActionResult Index(string username, string password)
         {
