@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TheVulnBank.Controllers
 {
-    public class FillerController : Controller
+    public class FillerController : BaseController
     {
         //
         // GET: /Filler/

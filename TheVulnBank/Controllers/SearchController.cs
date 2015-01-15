@@ -2,7 +2,7 @@
 
 namespace TheVulnBank.Controllers
 {
-    public class SearchController : Controller
+    public class SearchController : BaseController
     {
         public ActionResult Index()
         {
