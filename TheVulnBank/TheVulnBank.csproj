@@ -125,6 +125,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\TheVulnBank.sdf" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\CSS\Default.css" />
     <Content Include="Views\Money\Index.aspx" />
     <Content Include="Views\Money\Transfers.aspx" />
     <Content Include="Views\Home\Index.aspx" />
@@ -139,7 +140,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\CSS\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\JavaScript\" />
   </ItemGroup>
