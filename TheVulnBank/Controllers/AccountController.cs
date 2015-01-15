@@ -33,7 +33,7 @@ namespace TheVulnBank.Controllers
         //
         // GET: /Account/Transfers/{id}
         [HttpGet]
-        public ActionResult Transfers(int accountId)
+        public ActionResult Transfers(int id)
         {
             if (!isAuthenticated)
             {
@@ -41,7 +41,7 @@ namespace TheVulnBank.Controllers
             }
 
             AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
-            List<Transfer> transfers = accountRepository.ListTransfers(accountId);
+            List<Transfer> transfers = accountRepository.ListTransfers(id);
             return View(new TheVulnBank.Models.View.Account
             {
                 Transfers = transfers,

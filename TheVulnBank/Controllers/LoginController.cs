@@ -49,7 +49,7 @@ namespace TheVulnBank.Controllers
                     userIdCookie.Expires = DateTime.Now.AddHours(8);
                     Response.SetCookie(userIdCookie);
 
-                    return View();
+                    return RedirectToAction("Index", "Home");
                 }
                 else 
                 {

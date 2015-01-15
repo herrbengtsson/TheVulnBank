@@ -49,12 +49,12 @@ namespace TheVulnBank.Repositories
             return result;
         }
 
-        public User GetUser(string username)
+        public User GetUser(int userId)
         {
             User result = new User();
             //using (this.connection)
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, Username, Password FROM Users WHERE Username='" + username + "';", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, FirstName, LastName, Username FROM Users WHERE Id='" + userId + "';", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
                 if (reader.Read())
@@ -62,13 +62,47 @@ namespace TheVulnBank.Repositories
                     result = new User
                     {
                         Id = reader.GetInt32(0),
-                        Username = reader.GetString(1)
+                        FirstName = reader.GetString(1),
+                        LastName = reader.GetString(2),
+                        Username = reader.GetString(3),
                     };
                 }
                 reader.Close();
                 this.connection.Close();
             }
             return result;
+        }
+
+        public User GetUser(string username)
+        {
+            User result = new User();
+            //using (this.connection)
+            {
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, FirstName, LastName, Username FROM Users WHERE Username='" + username + "';", this.connection);
+                this.connection.Open();
+                SqlCeDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = new User
+                    {
+                        Id = reader.GetInt32(0),
+                        FirstName = reader.GetString(1),
+                        LastName = reader.GetString(2),
+                        Username = reader.GetString(3),
+                    };
+                }
+                reader.Close();
+                this.connection.Close();
+            }
+            return result;
+        }
+
+        public void ChangePassword(int userId, string password)
+        {
+            SqlCeCommand command = new SqlCeCommand("UPDATE Users SET Password='" + CalculateMD5Hash(password) + "' WHERE Id='" + userId + "';", this.connection);
+            this.connection.Open();
+            command.ExecuteNonQuery();
+            this.connection.Close();
         }
 
         // http://blogs.msdn.com/b/csharpfaq/archive/2006/10/09/how-do-i-calculate-a-md5-hash-from-a-string_3f00_.aspx

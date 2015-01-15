@@ -21,7 +21,7 @@
     <tbody>
     <% foreach (TheVulnBank.Models.Data.Account account in Model) {  %>
         <tr>
-            <td><a href="<%: Url.Action("Transfers", "Account", new { accountId = account.Id }) %>"><%: account.Id %></a></td>
+            <td><a href="<%: Url.Action("Transfers", "Account", new { id = account.Id }) %>"><%: account.Id %></a></td>
             <td><%: account.UserId %></td>
             <td><%: account.Amount %></td>
         </tr>
