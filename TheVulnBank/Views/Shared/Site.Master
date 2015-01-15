@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
+<head id="Head1" runat="server">
     <meta name="viewport" content="width=device-width" />
     <title>Le VulnBank</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/default.css">

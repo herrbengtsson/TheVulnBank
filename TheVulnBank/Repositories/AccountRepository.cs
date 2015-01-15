@@ -21,7 +21,7 @@ namespace TheVulnBank.Repositories
             List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, Amount FROM Accounts WHERE UserId='" + userId + "';", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, Amount, Name FROM Accounts WHERE UserId='" + userId + "';", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -30,6 +30,7 @@ namespace TheVulnBank.Repositories
                     {
                         Id = reader.GetInt32(0),
                         Amount = reader.GetDouble(1),
+                        Name = reader.GetString(2),
                     });
                 }
                 reader.Close();
@@ -43,7 +44,7 @@ namespace TheVulnBank.Repositories
             List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Accounts.Id, Users.Username FROM Accounts LEFT OUTER JOIN Users ON Accounts.Id = Users.Id;", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Accounts.Id, Users.FirstName + ' ' + Users.LastName + ' - ' + Accounts.Name FROM Accounts LEFT OUTER JOIN Users ON Accounts.Id = Users.Id ORDER BY User.FirstName, User.LastName, Account.Name;", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -65,7 +66,7 @@ namespace TheVulnBank.Repositories
             List<Transfer> result = new List<Transfer>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, SendAccId, RecAccId, Amount, Message FROM Transfers WHERE SendAccId='" + accountId + "' OR RecAccId='" + accountId + "';", this.connection);
+                SqlCeCommand command = new SqlCeCommand("SELECT Id, FromAccountId, ToAccountId, Amount, Message FROM Transfers WHERE FromAccountId='" + accountId + "' OR ToAccountId='" + accountId + "';", this.connection);
                 this.connection.Open();
                 SqlCeDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -89,7 +90,7 @@ namespace TheVulnBank.Repositories
         {
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("INSERT INTO Transfers (SendAccId, RecAccId, Amount, Message) VALUES (" + fromAccountId + ", " + toAccountId + ", " + amount + ", '" + message + "');", this.connection);
+                SqlCeCommand command = new SqlCeCommand("INSERT INTO Transfers (FromAccountId, ToAccountId, Amount, Message) VALUES (" + fromAccountId + ", " + toAccountId + ", " + amount + ", '" + message + "');", this.connection);
                 this.connection.Open();
                 command.ExecuteNonQuery();
                 this.connection.Close();

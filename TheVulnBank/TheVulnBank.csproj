@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -132,13 +133,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\TheVulnBank.sdf" />
     <Content Include="Global.asax" />
-    <Content Include="Resources\CSS\Default.css" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Account\Transfer.aspx" />
     <Content Include="Views\Account\Transfers.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
     <Content Include="Views\Search\Index.aspx" />
+    <Content Include="Views\User\ChangePassword.aspx" />
+    <Content Include="Views\User\ShowUser.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -149,6 +151,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\CSS\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\JavaScript\" />
   </ItemGroup>
