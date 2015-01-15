@@ -23,12 +23,12 @@
             </div>
             <div class="header-menu">
                 <ul>
-                    <li>Lån</li>
-                    <li>Sparande</li>
-                    <li>Pension</li>
-                    <li>Försäkringar</li>
-                    <li>Vardagstjänster</li>
-                    <li>Kontakt</li>
+                    <li><%:Html.ActionLink("Lån", "Loan", "Filler")%></li>
+                    <li><%:Html.ActionLink("Sparande", "Savings", "Filler")%></li>
+                    <li><%:Html.ActionLink("Pension", "Pension", "Filler")%></li>
+                    <li><%:Html.ActionLink("Försäkringar", "Insurance", "Filler")%></li>
+                    <li><%:Html.ActionLink("Vardagstjänster", "Services", "Filler")%></li>
+                    <li><%:Html.ActionLink("Kontakt", "Index", "Contact")%></li>
                     <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Log out", "Index", "Logout") : Html.ActionLink("Log in", "Index", "Login")) %></li>
                 </ul>
             </div>
