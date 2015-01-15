@@ -30,11 +30,6 @@ namespace TheVulnBank.Controllers
                     userId = int.Parse(request.Cookies["UserId"].Value);
                 }
             }
-
-            //string cookieName = FormsAuthentication.FormsCookieName;
-            //HttpCookie authCookie = request.Cookies[cookieName];
-            //FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-            //userData = authTicket.UserData;
         }
 
     }
