@@ -23,11 +23,11 @@
             </div>
             <div class="header-menu">
                 <ul>
-                    <li>Lån</li>
-                    <li>Sparande</li>
-                    <li>Pension</li>
-                    <li>Försäkringar</li>
-                    <li>Vardagstjänster</li>
+                    <li><%:Html.ActionLink("Lån", "Loan", "Filler")%></li>
+                    <li><%:Html.ActionLink("Sparande", "Savings", "Filler")%></li>
+                    <li><%:Html.ActionLink("Pension", "Pension", "Filler")%></li>
+                    <li><%:Html.ActionLink("Försäkringar", "Insurance", "Filler")%></li>
+                    <li><%:Html.ActionLink("Vardagstjänster", "Services", "Filler")%></li>
                     <li><%:Html.ActionLink("Kontakt", "Index", "Contact")%></li>
                     <li class="login"><%:Html.ActionLink("Login", "Index", "Login")%></li>
                 </ul>

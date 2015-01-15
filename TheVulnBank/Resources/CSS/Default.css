@@ -30,6 +30,14 @@ body {
     vertical-align: baseline;
 }
 
+hr {
+    border: solid #5a8296;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 10px 0;
+    height: 0;
+}
+
 /* -------------------- */
 
 #site-borders {
@@ -205,6 +213,17 @@ body {
     margin:0;
     padding: 0 20px 20px 20px;
     float:right;
+}
+
+.filler-container {
+    padding:20px 10px;
+}
+
+.filler-statement {
+    color: #005284;
+    font-weight:bold;
+    padding:0 0 10px 0;
+    margin:0;
 }
 
 .question-item-container {
