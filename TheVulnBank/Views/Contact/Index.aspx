@@ -29,39 +29,17 @@
            { %>
             <div class="question-item-container">
                 <div class="question-item">
-                    <div class="question-title"><span class="question-circle">?</span><span class="question-text"><%:q.Text %></span></div>
+                    <div class="question-title"><span class="question-circle">?</span><span class="question-text"><%= q.Text %></span></div>
                     <div class="question-answer">
                         <span style="font-weight: bold;">Answer: </span>
-                        <span><%:q.Answer %></span>
-                        <span>Best regards // Banking guys</span>
+                        <span><%: string.IsNullOrEmpty(q.Answer) ? "Pending..." : q.Answer %></span>                        
+                        <% if(!string.IsNullOrEmpty(q.Answer)) { %>                        
+                            <span>Best regards // Banking guys</span>
+                        <% } %>
                     </div>
                 </div>
             </div>
         <% } %>
-
-        <div class="question-item-container">
-            <div class="question-item">
-                <div class="question-title"><span class="question-circle">?</span><span class="question-text">Olle! Är jag en björn?</span></div>
-                <div class="question-answer">
-                    <span style="font-weight: bold;">Svar:</span>
-                    <span>Du är en snel hest.</span>
-                </div>
-            </div>
-            <div class="question-item">
-                <div class="question-title"><span class="question-circle">?</span><span class="question-text">Olle! Är jag en björn?</span></div>
-                <div class="question-answer">
-                    <span style="font-weight: bold;">Svar:</span>
-                    <span>Du är en snel hest.</span>
-                </div>
-            </div>
-            <div class="question-item">
-                <div class="question-title"><span class="question-circle">?</span><span class="question-text">Olle! Är jag en björn?</span></div>
-                <div class="question-answer">
-                    <span style="font-weight: bold;">Svar:</span>
-                    <span>Du är en snel hest.</span>
-                </div>
-            </div>
-        </div>
     </div>
 
 </asp:Content>
