@@ -4,9 +4,9 @@
 
     <div class="login-box">
         <form action="<%: Url.Action("Index", "Login") %>" method="post">
-            <span>Username:</span>
+            <b>Username:</b>
             <input type="text" name="username" />
-            <span>Password:</span>
+            <b>Password:</b>
             <input type="password" name="password" />
 
             <% if (TempData["Message"] != null) { %>

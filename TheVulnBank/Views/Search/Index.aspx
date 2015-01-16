@@ -1,18 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<TheVulnBank.Models.View.Search>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
     <div>
-        <h2>Sökresultat</h2>        
+        <h2>Search results</h2>        
         <div class="search-box">
             <div class="large-search">
                 <form action="" method="get" accesskey="s" accept-charset="utf-8">
-                    <input type="text" name="q" value="<%= ViewData["Search"] %>" autocomplete="false">
-                    <button type="submit">Sök</button>
+                    <input type="text" name="q" value="<%= Model.Query %>" autocomplete="false" /><input type="submit" value="Search" />
                 </form>
             </div>
         </div>
-        <p>Inget sökresultat matchade <b><%= ViewData["Search"] %></b></p>
+        <% if (Model.Articles.Count == 0) { %>
+            <p>No search results for <b><%= Model.Query %></b></p>
+        <% } else { %>
+            <p>Search results for <b><%= Model.Query %></b>:</p>
+            <% foreach(TheVulnBank.Models.Data.Article article in Model.Articles) { %>
+                <hr />
+                <b><a href="<%: Url.Action("Index", "Article", new { id = article.Id }) %>"><%: article.Title %></a></b>
+                <p><%: Html.SearchDescription(article.Text, Model.Query) %></p>
+            <% } %>
+        <% } %>
     </div>
 
     <script type="text/html">
