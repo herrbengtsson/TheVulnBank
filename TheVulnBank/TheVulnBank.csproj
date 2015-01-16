@@ -126,12 +126,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\Account.cs" />
+    <Compile Include="Models\Data\Question.cs" />
     <Compile Include="Models\Data\Transfer.cs" />
     <Compile Include="Models\Data\User.cs" />
     <Compile Include="Models\View\Account.cs" />
+    <Compile Include="Models\View\Questions.cs" />
     <Compile Include="Models\View\Transfer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\QuestionsRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +142,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\TheVulnBank.mdf" />
-    <Content Include="App_Data\TheVulnBank.sdf" />
     <Content Include="App_Data\TheVulnBank_log.ldf">
       <DependentUpon>TheVulnBank.mdf</DependentUpon>
     </Content>

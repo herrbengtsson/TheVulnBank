@@ -80,8 +80,8 @@
                         <p>12271 Barnaby</p>
                         <p>Telefon: 123-345 67 89</p>
                         <p>E-post: test@test.ru</p>
-                        <p>Denna sajt är byggd i rent testsyfte...</p>
-                        <p>...och innehåller mängder av sårbarheter</p>
+                        <p>This site is built purely for testing purposes ...</p>
+                        <p>... and contains numerous vulnerabilities</p>
                     </div>
                     <div class="clear">
                         <!-- -->
