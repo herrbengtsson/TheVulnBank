@@ -43,7 +43,16 @@ hr {
     height: 0;
 }
 
-/* ---------- HEADER ---------- */
+.clear {
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+
+/* ---------- CONTAINER ---------- */
 
 #site-borders {
     background: none repeat scroll 0 0 #fff;
@@ -53,10 +62,14 @@ hr {
     overflow: hidden;
     position: relative;
     width: 100%;
+    border-radius: 0 0 3px 3px;
 }
+
+/* ---------- HEADER ---------- */
 
 #site-header {
     background: linear-gradient(#194461 0%, #0d4570 2%, #13588c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: linear-gradient(#009682 0%, #00a791 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     margin: 0;
     width: 100%;
     z-index: 100;
@@ -66,6 +79,7 @@ hr {
 
 .header-menu {
     background-color:#0d4570;
+    background-color:#007465;
 }
 
 .header-menu a {
@@ -91,7 +105,7 @@ hr {
 }
 
 .header-sub-menu {
-    background-color: #f3f0e9;
+    background-color: #eee;
 }
 
 .header-sub-menu a {
@@ -159,6 +173,7 @@ hr {
 .small-search button, .large-search button {
     float: right;
     background: linear-gradient(#38789f,#194461);
+    background: linear-gradient(#006356,#007465);
     border: none;
     margin: 0;
     margin-left: -2px;
@@ -183,7 +198,7 @@ hr {
 }
 
 a {
-    color: #005284;
+    color: #009682;
 }
 
 .tiger-table {
@@ -206,74 +221,6 @@ a {
 
 .table-first-column-bold tbody tr td:first-child {
     font-weight: bold;
-}
-
-
-/* ---------- FOOTER ---------- */
-
-#site-footer {
-    background: linear-gradient(#194461 0%, #0d4570 2%, #13588c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    color: #ccd8de;
-    width: 100%;
-}
-
-.footer-menu {
-    margin:0;
-    padding:20px 20px 0 20px;
-}
-
-.footer-menu a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-menu .columns {
-  float:left;
-}
-
-.columns h2 {
-    color:#fff;
-    padding:0 0 27px 0;
-}
-
-.columns p {
-    margin:0;
-    padding:4px;        
-}
-
-.columns span {
-    margin:0;
-    font-weight:bold;
-    padding:4px;
-    color:#fff;
-    display:block;
-}
-
-.columns ul {
-    margin:0;
-    padding:0;
-    list-style-type: none;    
-    width: 300px;    
-}
-
-.columns ul li {
-    margin: 0;
-    padding: 4px;
-}
-
-#site-footer hr {
-    border: solid #5a8296;
-    border-width: 1px 0 0;
-    clear: both;
-    margin: 10px 0;
-    height: 0;
-}
-
-#site-footer .disclaimer {
-    margin:0;
-    padding: 0 20px 20px 20px;
-    float:right;
 }
 
 .filler-container {
@@ -366,11 +313,81 @@ a {
 .login-box button {
     float:right;
     padding:5px 5px;
-    color:#005284;
+    color:#009682;
     font-weight:bold;
     border:none;
     background-color:white;
     cursor:pointer
+}
+
+/* ---------- FOOTER ---------- */
+
+#site-footer {
+    background: linear-gradient(#194461 0%, #0d4570 2%, #13588c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: linear-gradient(#007465 0%, #009682 2%, #00a791 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #ccd8de;
+    width: 100%;
+    border-radius: 0 0 3px 3px;
+}
+
+.footer-menu {
+    margin:0;
+    padding:20px 20px 0 20px;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-menu .columns {
+  float:left;
+}
+
+.columns h2 {
+    color:#fff;
+    padding:0 0 27px 0;
+}
+
+.columns p {
+    margin:0;
+    padding:4px;        
+}
+
+.columns span {
+    margin:0;
+    font-weight:bold;
+    padding:4px;
+    color:#fff;
+    display:block;
+}
+
+.columns ul {
+    margin:0;
+    padding:0;
+    list-style-type: none;    
+    width: 300px;    
+}
+
+.columns ul li {
+    margin: 0;
+    padding: 4px;
+}
+
+#site-footer hr {
+    border: solid #5a8296;
+    border: solid #009682;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 10px 0;
+    height: 0;
+}
+
+#site-footer .disclaimer {
+    margin:0;
+    padding: 0 20px 20px 20px;
+    float:right;
 }
 
 .container {
@@ -378,13 +395,4 @@ a {
     padding: 0;
     position: relative;
     width: 960px;
-}
-
-.clear {
-    clear: both;
-    display: block;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    width: 0;
 }
