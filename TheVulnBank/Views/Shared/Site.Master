@@ -42,56 +42,52 @@
             <% } %>
         </div>
         <div id="site-content">
-            <div class="container">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
         <div id="site-footer">
-            <div class="container">
-                <div class="footer-menu">
-                    <div class="columns">
-                        <span><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></span>
-                        <span><a href="https://www.owasp.org/index.php/OWASP_Testing_Project">OWASP Testing Guide</a></span>
-                        <span><a href="https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series">OWASP Cheat Sheets</a></span>
-                        <br />
-                        <ul>
-                            <li>Kontakt 1:</li>
-                            <li>Gustav Nyqvist</li>
-                            <li>Knowit Secure</li>
-                            <li>072-705 20 40</li>
-                        </ul>
-                    </div>
-                    <div class="columns">
-                        <span><a href="http://knowitsecure.se/">Knowit Secure</a></span>
-                        <span><a href="https://www.owasp.org/index.php/East_Sweden">OWASP East Sweden</a></span>
-                        <span>Important link 2</span>
-                        <br />
-                        <ul>
-                            <li>Kontakt 2:</li>
-                            <li>Gustav Nyqvist</li>
-                            <li>Knowit Secure</li>
-                            <li>072-705 20 40</li>
-                        </ul>
-                    </div>
-                    <div class="columns">
-                        <h2>About le Bank</h2>
-                        <p>Testgatan 12</p>
-                        <p>12271 Barnaby</p>
-                        <p>Telefon: 123-345 67 89</p>
-                        <p>E-post: test@test.ru</p>
-                        <p>This site is built purely for testing purposes ...</p>
-                        <p>... and contains numerous vulnerabilities</p>
-                    </div>
-                    <div class="clear">
-                        <!-- -->
-                    </div>
+            <div class="footer-menu">
+                <div class="columns">
+                    <ul>
+                        <li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></li>
+                        <li><a href="https://www.owasp.org/index.php/OWASP_Testing_Project">OWASP Testing Guide</a></li>
+                        <li><a href="https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series">OWASP Cheat Sheets</a></li>
+                    </ul>
                 </div>
-                <hr />
-                <div class="disclaimer">Any resemblance to other bank sites is purely accidental</div>
+                <div class="columns">
+                    <ul>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+                <div class="columns">
+                    <ul>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+                <div class="columns">
+                    <ul>
+                        <li><a href="http://knowitsecure.se/">Knowit Secure</a></li>
+                        <li><a href="https://www.owasp.org/index.php/East_Sweden">OWASP East Sweden</a></li>
+                        <li><a href="https://github.com/herrbengtsson/TheVulnBank">GitHub</a></li>
+                    </ul>
+                </div>
                 <div class="clear">
                     <!-- -->
                 </div>
+            </div>
+            <hr />
+            <div class="disclaimer">
+                The VulnBank is a deliberately vulnerable webapplication (resembling an online bank) for use in security awereness training.
+                <b>This is not a real bank.</b> Any resemblance to a real bank site is purely accidental.
+                The application is littered with vulnerabilities and is intentially bad written (please don't hold it against us).
+                <b>Do not install this application on you system if you don't know what you're doing!</b>
+            </div>
+            <div class="clear">
+                <!-- -->
             </div>
         </div>
     </div>
