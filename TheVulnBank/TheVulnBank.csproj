@@ -139,7 +139,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\TheVulnBank.mdf" />
-    <Content Include="App_Data\TheVulnBank.sdf" />
     <Content Include="App_Data\TheVulnBank_log.ldf">
       <DependentUpon>TheVulnBank.mdf</DependentUpon>
     </Content>
