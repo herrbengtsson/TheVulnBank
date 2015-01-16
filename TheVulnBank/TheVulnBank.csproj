@@ -117,6 +117,7 @@
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FillerController.cs" />
+    <Compile Include="Controllers\ShowController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -148,6 +149,7 @@
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\Default.css" />
     <Content Include="Resources\Images\magnifier.png" />
+    <Content Include="Resources\Images\Stock\1065245_79106935.jpg" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Account\Transfer.aspx" />
     <Content Include="Views\Account\Transfers.aspx" />

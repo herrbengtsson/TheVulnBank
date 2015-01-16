@@ -12,12 +12,12 @@
     <div id="site-borders">
         <div id="site-header">
             <div class="container">
-                <h1>The VulnBank</h1>
+                <h1><a href="<%: Url.Action("Index", "Home") %>">The VulnBank</a></h1>
                 <div class="small-search">
                     <% using(Html.BeginForm("Index", "Search", FormMethod.Get)) %>
                     <% { %>
                         <input type="search" name="q" value="">
-                        <button type="submit">Sök</button>
+                        <button type="submit">Search</button>
                     <% } %>
                 </div>
             </div>
