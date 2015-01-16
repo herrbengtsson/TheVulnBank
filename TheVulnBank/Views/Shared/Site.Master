@@ -23,13 +23,12 @@
             </div>
             <div class="header-menu">
                 <ul>
-                    <li><%:Html.ActionLink("Lån", "Loan", "Filler")%></li>
-                    <li><%:Html.ActionLink("Sparande", "Savings", "Filler")%></li>
+                    <li><%:Html.ActionLink("Loans", "Loan", "Filler")%></li>
+                    <li><%:Html.ActionLink("Savings", "Savings", "Filler")%></li>
                     <li><%:Html.ActionLink("Pension", "Pension", "Filler")%></li>
-                    <li><%:Html.ActionLink("Försäkringar", "Insurance", "Filler")%></li>
-                    <li><%:Html.ActionLink("Vardagstjänster", "Services", "Filler")%></li>
-                    <li><%:Html.ActionLink("Kontakt", "Index", "Contact")%></li>
-                    <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Log out", "Index", "Logout") : Html.ActionLink("Log in", "Index", "Login")) %></li>
+                    <li><%:Html.ActionLink("Insurance", "Insurance", "Filler")%></li>
+                    <li><%:Html.ActionLink("Customer service", "Services", "Filler")%></li>                    
+                    <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Sign out", "Index", "Logout") : Html.ActionLink("Sign in", "Index", "Login")) %></li>
                 </ul>
             </div>
             <% if ((bool) ViewData["IsAuthenticated"]) { %>
@@ -37,6 +36,7 @@
                 <ul>
                     <li><%: Html.ActionLink("Accounts", "Index", "Account") %></li>
                     <li><%: Html.ActionLink("Profile", "Index", "User") %></li>
+                    <li><%: Html.ActionLink("Contact", "Index", "Contact")%></li>
                 </ul>
             </div>
             <% } %>

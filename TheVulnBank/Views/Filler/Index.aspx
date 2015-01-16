@@ -2,23 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Hur kan vi hjälpa dig?</h2>
+<h2>How can we help you?</h2>
 
     <div class="filler-container">
-        <p class="filler-statement">Samla dina lån!</p>
-        <span>Samla dina smålån och krediter hos oss och minska din månadskostnad. Just nu slår vi vad om att vi kan sänka dina lånekostnader.</span>
+        <p class="filler-statement">Translated by Google!</p>
+        <span>Almost all the text on this site is translated by Google! If the content does not understand, blame Larry Page!</span>
+        <hr />
+
+        <p class="filler-statement">Gather your loan!</p>
+        <span>Collect your small loans and credits with us and reduce your monthly cost. Right now we turn what if we can lower your mortgage.</span>
         <hr />
     
-        <p class="filler-statement">Varning för falska mejl!</p>
-        <span>Just nu cirkulerar ett flertal falska mejl. Bedragare försöker få dig att lämna ut kontonummer, lösenord och andra uppgifter. Varken LeBank, andra banker eller kortföretag ber dig att lämna ut sådana uppgifter.</span>
+        <p class="filler-statement">Beware of fake emails!</p>
+        <span>Right now circulating a number of fake emails. Fraudsters trying to get you to disclose account numbers, passwords and other data. Neither LeBank, other banks or card companies ask you to disclose such information.</span>
         <hr />
 
-        <p class="filler-statement">Varning för falska mejl!</p>
-        <span>Just nu cirkulerar ett flertal falska mejl. Bedragare försöker få dig att lämna ut kontonummer, lösenord och andra uppgifter. Varken LeBank, andra banker eller kortföretag ber dig att lämna ut sådana uppgifter.</span>
-        <hr />
-
-        <p class="filler-statement">Se över ditt pensionssparande!</p>
-        <span>Avdragsrätten för privat pensionssparande minskar kraftigt i år. För att undvika dubbelbeskattning bör du se över ditt pensionssparande. Kontakta din rådgivare eller telefonbanken om du är osäker på vad som passar dig bäst! Få dina pensionspengar att växa</span>
+        <p class="filler-statement">Revisit your retirement savings!</p>
+        <span>The right of deduction for private pension decreases sharply this year. To avoid double taxation, you should revise your retirement savings. Contact your advisor or call the bank if you are unsure of what suits you best! Get your pension money to grow.</span>
         <hr />
     </div>
 

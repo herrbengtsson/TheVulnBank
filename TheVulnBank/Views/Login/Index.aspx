@@ -12,7 +12,7 @@
             <input type="text" name="username" />
             <span>Lösenord:</span>
             <input type="password" name="password" />
-            <button type="submit">Login!</button>
+            <button type="submit">Sign in!</button>
             <div class="clear"><!-- --></div>
         </form>
     </div>

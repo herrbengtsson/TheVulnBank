@@ -10,7 +10,7 @@
     <a href="<%: Url.Action("Index", "Account") %>">Show accounts</a><br />
     <a href="<%: Url.Action("Index", "User") %>">Show profile</a><br />
 <% } else { %>
-    <a href="<%: Url.Action("Index", "Login") %>">Login</a>
+    <a href="<%: Url.Action("Index", "Login") %>">Sign in</a>
 <% } %>
 
 </asp:Content>
