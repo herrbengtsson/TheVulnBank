@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +21,7 @@ namespace TheVulnBank.Controllers
         public ActionResult Index(string username, string password)
         {
             //TempData.Add("Message", "POST");
-            UserRepository userRepository = new UserRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            UserRepository userRepository = new UserRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             if (userRepository.UserExists(username)) 
             {
                 if (userRepository.LoginUser(username, password)) 

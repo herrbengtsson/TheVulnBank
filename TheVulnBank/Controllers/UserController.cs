@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Web.Mvc;
 using TheVulnBank.Filters;
@@ -23,7 +24,7 @@ namespace TheVulnBank.Controllers
         [RequireLoginFilter]
         public ActionResult ShowUser(int id)
         {
-            UserRepository userRepository = new UserRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            UserRepository userRepository = new UserRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             User user = userRepository.GetUser(id);
             return View("ShowUser", user);
         }
@@ -39,7 +40,7 @@ namespace TheVulnBank.Controllers
         [RequireLoginFilter]
         public ActionResult ChangePassword(string password)
         {
-            UserRepository userRepository = new UserRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            UserRepository userRepository = new UserRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             userRepository.ChangePassword(userId, password);
 
             TempData.Add("Message", "Password changed");
