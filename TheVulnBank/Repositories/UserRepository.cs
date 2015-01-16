@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlServerCe;
-using System.Linq;
+﻿using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using TheVulnBank.Models.Data;
 
 namespace TheVulnBank.Repositories
@@ -12,9 +8,9 @@ namespace TheVulnBank.Repositories
     public class UserRepository
     {
 
-        private SqlCeConnection connection;
+        private SqlConnection connection;
 
-        public UserRepository(SqlCeConnection connection)
+        public UserRepository(SqlConnection connection)
         {
             this.connection = connection;
         }
@@ -24,9 +20,9 @@ namespace TheVulnBank.Repositories
             bool result = false;
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id FROM Users WHERE Username='" + username + "';", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Id FROM Users WHERE Username='" + username + "';", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 result = reader.Read();
                 reader.Close();
                 this.connection.Close();
@@ -39,9 +35,9 @@ namespace TheVulnBank.Repositories
             bool result = false;
             //using (this.connection)
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id FROM Users WHERE Username='" + username + "' AND Password='" + CalculateMD5Hash(password) + "';", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Id FROM Users WHERE Username='" + username + "' AND Password='" + CalculateMD5Hash(password) + "';", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 result = reader.Read();
                 reader.Close();
                 this.connection.Close();
@@ -54,9 +50,9 @@ namespace TheVulnBank.Repositories
             User result = new User();
             //using (this.connection)
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, FirstName, LastName, Username FROM Users WHERE Id='" + userId + "';", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Id, FirstName, LastName, Username FROM Users WHERE Id='" + userId + "';", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
                     result = new User
@@ -78,9 +74,9 @@ namespace TheVulnBank.Repositories
             User result = new User();
             //using (this.connection)
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, FirstName, LastName, Username FROM Users WHERE Username='" + username + "';", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Id, FirstName, LastName, Username FROM Users WHERE Username='" + username + "';", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
                     result = new User
@@ -99,7 +95,7 @@ namespace TheVulnBank.Repositories
 
         public void ChangePassword(int userId, string password)
         {
-            SqlCeCommand command = new SqlCeCommand("UPDATE Users SET Password='" + CalculateMD5Hash(password) + "' WHERE Id='" + userId + "';", this.connection);
+            SqlCommand command = new SqlCommand("UPDATE Users SET Password='" + CalculateMD5Hash(password) + "' WHERE Id='" + userId + "';", this.connection);
             this.connection.Open();
             command.ExecuteNonQuery();
             this.connection.Close();

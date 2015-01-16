@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlServerCe;
+using System.Data.SqlClient;
 using System.Web.Mvc;
 using TheVulnBank.Filters;
 using TheVulnBank.Models.Data;
@@ -14,7 +14,7 @@ namespace TheVulnBank.Controllers
         [RequireLoginFilter]
         public ActionResult Index()
         {
-            AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            AccountRepository accountRepository = new AccountRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             List<Account> accounts = accountRepository.ListAccounts(userId);
             return View(accounts);
         }
@@ -23,7 +23,7 @@ namespace TheVulnBank.Controllers
         [RequireLoginFilter]
         public ActionResult Transfers(int id)
         {
-            AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            AccountRepository accountRepository = new AccountRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             List<Account> accounts = accountRepository.ListAllAccounts();
             List<Transfer> transfers = accountRepository.ListTransfers(id);
             return View(new TheVulnBank.Models.View.Account
@@ -38,7 +38,7 @@ namespace TheVulnBank.Controllers
         [RequireLoginFilter]
         public ActionResult Transfer()
         {
-            AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            AccountRepository accountRepository = new AccountRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             List<Account> fromAccounts = accountRepository.ListAccounts(userId);
             List<Account> toAccounts = accountRepository.ListAllAccounts();
 
@@ -53,10 +53,10 @@ namespace TheVulnBank.Controllers
         [ValidateInput(false)]
         public ActionResult Transfer(int fromAccountId, int toAccountId, double amount, string message)
         {
-            AccountRepository accountRepository = new AccountRepository(new SqlCeConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDBContext"].ConnectionString));
+            AccountRepository accountRepository = new AccountRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
             accountRepository.AddTransfer(fromAccountId, toAccountId, amount, message);
 
-            return RedirectToAction("Transfers", "Account", new { accountId = fromAccountId });
+            return RedirectToAction("Transfers", "Account", new { id = fromAccountId });
         }
     }
 }

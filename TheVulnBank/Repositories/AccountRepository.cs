@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlServerCe;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.Data.SqlClient;
 using TheVulnBank.Models.Data;
 
 namespace TheVulnBank.Repositories
 {
     public class AccountRepository
     {
-        private SqlCeConnection connection;
+        private SqlConnection connection;
 
-        public AccountRepository(SqlCeConnection connection)
+        public AccountRepository(SqlConnection connection)
         {
             this.connection = connection;
         }
@@ -21,9 +18,9 @@ namespace TheVulnBank.Repositories
             List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, Amount, Name FROM Accounts WHERE UserId='" + userId + "' ORDER BY Name, Amount;", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Id, Amount, Name FROM Accounts WHERE UserId='" + userId + "' ORDER BY Name, Amount;", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     result.Add(new Account
@@ -44,9 +41,9 @@ namespace TheVulnBank.Repositories
             List<Account> result = new List<Account>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Accounts.Id, Users.FirstName + ' ' + Users.LastName + ' - ' + Accounts.Name FROM Accounts LEFT OUTER JOIN Users ON Accounts.UserId = Users.Id ORDER BY Users.FirstName, Users.LastName, Accounts.Name;", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Accounts.Id, Users.FirstName + ' ' + Users.LastName + ' - ' + Accounts.Name FROM Accounts LEFT OUTER JOIN Users ON Accounts.UserId = Users.Id ORDER BY Users.FirstName, Users.LastName, Accounts.Name;", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     result.Add(new Account
@@ -66,9 +63,9 @@ namespace TheVulnBank.Repositories
             List<Transfer> result = new List<Transfer>();
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("SELECT Id, FromAccountId, ToAccountId, Amount, Message FROM Transfers WHERE FromAccountId='" + accountId + "' OR ToAccountId='" + accountId + "';", this.connection);
+                SqlCommand command = new SqlCommand("SELECT Id, FromAccountId, ToAccountId, Amount, Message FROM Transfers WHERE FromAccountId='" + accountId + "' OR ToAccountId='" + accountId + "';", this.connection);
                 this.connection.Open();
-                SqlCeDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     result.Add(new Transfer
@@ -90,7 +87,7 @@ namespace TheVulnBank.Repositories
         {
             //using(this.connection) 
             {
-                SqlCeCommand command = new SqlCeCommand("INSERT INTO Transfers (FromAccountId, ToAccountId, Amount, Message) VALUES (" + fromAccountId + ", " + toAccountId + ", " + amount + ", '" + message + "');", this.connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Transfers (FromAccountId, ToAccountId, Amount, Message) VALUES (" + fromAccountId + ", " + toAccountId + ", " + amount + ", '" + message + "');", this.connection);
                 this.connection.Open();
                 command.ExecuteNonQuery();
                 this.connection.Close();

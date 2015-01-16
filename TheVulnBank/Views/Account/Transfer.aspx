@@ -8,7 +8,7 @@
     From: <select name="fromAccountId">
         <% foreach (TheVulnBank.Models.Data.Account fromAccount in Model.FromAccounts)
            { %>
-            <option value="<%: fromAccount.Id %>"><%: fromAccount.Id %> - <%: fromAccount.Amount %></option>
+            <option value="<%: fromAccount.Id %>"><%: fromAccount.Name %> - <%: fromAccount.Amount %></option>
         <% } %>
     </select><br />
 
