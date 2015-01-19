@@ -2,7 +2,7 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial,Helvetica,sans-serif;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 h1 {
@@ -30,13 +30,13 @@ body {
     font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     text-align: left;
     vertical-align: baseline;
 }
 
 hr {
-    border: solid #5a8296;
+    border: solid #009682;
     border-width: 1px 0 0;
     clear: both;
     margin: 10px 0;
@@ -58,17 +58,16 @@ hr {
     background: none repeat scroll 0 0 #fff;
     box-shadow: 0 0 10px rgba(50, 50, 50, 0.75);
     margin: 0 auto;
-    max-width: 1020px;
     overflow: hidden;
     position: relative;
     width: 100%;
+    max-width: 960px;
     border-radius: 0 0 3px 3px;
 }
 
 /* ---------- HEADER ---------- */
 
 #site-header {
-    background: linear-gradient(#194461 0%, #0d4570 2%, #13588c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     background: linear-gradient(#009682 0%, #00a791 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     margin: 0;
     width: 100%;
@@ -77,8 +76,16 @@ hr {
     font-weight:bold;
 }
 
+#site-header h1 {
+    margin-left: 20px;
+}
+
+#site-header a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .header-menu {
-    background-color:#0d4570;
     background-color:#007465;
 }
 
@@ -89,8 +96,8 @@ hr {
 
 .header-menu ul {
     margin:0;
-    padding:5px 0 0 55px;
-    height:20px;
+    padding: 5px 0 0 20px;
+    height: 20px;
 }
 
 .header-menu ul li {
@@ -102,6 +109,7 @@ hr {
 .header-menu ul li.login {
     float:right;
     position:relative;
+    padding-right: 20px;
 }
 
 .header-sub-menu {
@@ -109,30 +117,30 @@ hr {
 }
 
 .header-sub-menu a {
-    color: #000;
+    color: #000 !important;
     text-decoration: none;
 }
 
 .header-sub-menu ul {
     margin:0;
-    padding:5px 0 0 55px;
-    height:20px;
+    padding: 5px 0 0 20px;
+    height: 20px;
 }
 
 .header-sub-menu ul li {
-    display:inline-block;
-    padding: 0 40px 0 0;
-    float:left;
+    display: inline-block;
+    padding-right: 40px;
+    float: left;
 }
 
 .small-search {
     position: absolute;
     float: right;
-    margin-right: 8px;
+    margin-right: 20px;
     height: 25px;
     margin-top: 15px;
     width: auto;
-    top: 28px;
+    top: 20px;
     right: 0;
 }
 
@@ -145,7 +153,7 @@ hr {
 }
 
 .small-search:before, .large-search:before {
-    color: #005284;
+    color: #009682;
     position: absolute;
     left: 6px;
     top: 6px;
@@ -153,24 +161,26 @@ hr {
 
 .small-search input {
     float: left;
-    padding: 3px 3px 3px 3px;
+    padding: 4px;
     padding-left: 20px;
     width: 150px;
     box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.3);
     border-radius: 3px 0 0 3px;
+    border: 1px solid #006356;
     background: #fff url('../Images/magnifier.png') no-repeat 2px 50%;
 }
 
 .large-search input {
-    padding: 3px 3px 3px 3px;
+    padding: 4px;
     padding-left: 20px;
     width: 300px;
     box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.3);
     border-radius: 3px 0 0 3px;
+    border: 1px solid #006356;
     background: #fff url('../Images/magnifier.png') no-repeat 2px 50%;
 }
 
-.small-search button, .large-search button {
+.small-search input[type=submit], .large-search input[type=submit] {
     float: right;
     background: linear-gradient(#38789f,#194461);
     background: linear-gradient(#006356,#007465);
@@ -180,6 +190,7 @@ hr {
     padding: 5px 8px;
     color: #CCD8DE;
     border-radius: 0 3px 3px 0;
+    width: 60px;
 }
 
 .search-box {
@@ -194,7 +205,7 @@ hr {
 /* ----------  MAIN  ---------- */
 
 #site-content {
-    padding: 15px;
+    padding: 20px;
 }
 
 a {
@@ -228,7 +239,7 @@ a {
 }
 
 .filler-statement {
-    color: #005284;
+    color: #009682;
     font-weight:bold;
     padding:0 0 10px 0;
     margin:0;
@@ -245,7 +256,7 @@ a {
 }
 
 .question-title {
-    color: #005284;
+    color: #009682;
     font-weight:bold;
     padding:0 0 20px 0;
 }
@@ -296,23 +307,9 @@ a {
     width:490px;
 }
 
-.question-textbox button {
-    float:right;
-    padding:5px 5px;
-    color:#005284;
-    font-weight:bold;
-    border:none;
-    background-color:white;
-    cursor:pointer
-}
-
 .login-box {
-    padding:20px;
     width:250px;
-}
-
-.login-box span {
-    font-weight:bold;
+    margin: 0 auto;
 }
 
 .login-box input {
@@ -321,7 +318,7 @@ a {
     width:240px;
 }
 
-.login-box button {
+button[type=submit] {
     float:right;
     padding:5px 5px;
     color:#009682;
@@ -341,10 +338,37 @@ a {
     padding:2px 0;
 }
 
+#transfer-table {
+    width: 250px;
+}
+
+#transfer-table select {
+    width: 100%;
+}
+
+#transfer-table input {
+    width: 97%;
+}
+
+.info-box, .alert-box {
+    border-radius: 3px;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.info-box {
+    background-color: #E1E114;
+}
+
+.alert-box {
+    background-color: #C8374B;
+}
+
 /* ---------- FOOTER ---------- */
 
 #site-footer {
-    background: linear-gradient(#194461 0%, #0d4570 2%, #13588c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     background: linear-gradient(#007465 0%, #009682 2%, #00a791 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     color: #ccd8de;
     width: 100%;
@@ -363,7 +387,8 @@ a {
 }
 
 .footer-menu .columns {
-  float:left;
+    float: left;
+    width: 25%;
 }
 
 .columns h2 {
@@ -388,7 +413,7 @@ a {
     margin:0;
     padding:0;
     list-style-type: none;    
-    width: 300px;    
+    width: 300px;  
 }
 
 .columns ul li {
@@ -401,19 +426,12 @@ a {
     border: solid #009682;
     border-width: 1px 0 0;
     clear: both;
-    margin: 10px 0;
+    margin: 10px 20px;
     height: 0;
 }
 
 #site-footer .disclaimer {
-    margin:0;
+    margin: 0;
     padding: 0 20px 20px 20px;
-    float:right;
-}
-
-.container {
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    width: 960px;
+    text-align: center;
 }

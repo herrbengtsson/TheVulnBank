@@ -12,22 +12,21 @@
     <div id="site-borders">
         <div id="site-header">
             <div class="container">
-                <h1>The VulnBank</h1>
+                <h1><a href="<%: Url.Action("Index", "Home") %>">The VulnBank</a></h1>
                 <div class="small-search">
                     <% using(Html.BeginForm("Index", "Search", FormMethod.Get)) %>
                     <% { %>
-                        <input type="search" name="q" value="">
-                        <button type="submit">Sök</button>
+                        <input type="search" name="q" value=""><input type="submit" value="Search" />
                     <% } %>
                 </div>
             </div>
             <div class="header-menu">
                 <ul>
-                    <li><%:Html.ActionLink("Loans", "Loan", "Filler")%></li>
-                    <li><%:Html.ActionLink("Savings", "Savings", "Filler")%></li>
-                    <li><%:Html.ActionLink("Pension", "Pension", "Filler")%></li>
-                    <li><%:Html.ActionLink("Insurance", "Insurance", "Filler")%></li>
-                    <li><%:Html.ActionLink("Customer service", "Services", "Filler")%></li>                    
+                    <li><%:Html.ActionLink("Loans", "Index", new { controller = "Article", id = 2 })%></li>
+                    <li><%:Html.ActionLink("Savings", "Index", new { controller = "Article", id = 3 })%></li>
+                    <li><%:Html.ActionLink("Pension", "Index", new { controller = "Article", id = 5 })%></li>
+                    <li><%:Html.ActionLink("Insurance", "Index", new { controller = "Article", id = 7 })%></li>
+                    <li><%:Html.ActionLink("Customer service", "Index", new { controller = "Article", id = 8 })%></li>        
                     <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Sign out", "Index", "Logout") : Html.ActionLink("Sign in", "Index", "Login")) %></li>
                 </ul>
             </div>
@@ -42,56 +41,52 @@
             <% } %>
         </div>
         <div id="site-content">
-            <div class="container">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
         <div id="site-footer">
-            <div class="container">
-                <div class="footer-menu">
-                    <div class="columns">
-                        <span><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></span>
-                        <span><a href="https://www.owasp.org/index.php/OWASP_Testing_Project">OWASP Testing Guide</a></span>
-                        <span><a href="https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series">OWASP Cheat Sheets</a></span>
-                        <br />
-                        <ul>
-                            <li>Kontakt 1:</li>
-                            <li>Gustav Nyqvist</li>
-                            <li>Knowit Secure</li>
-                            <li>072-705 20 40</li>
-                        </ul>
-                    </div>
-                    <div class="columns">
-                        <span><a href="http://knowitsecure.se/">Knowit Secure</a></span>
-                        <span><a href="https://www.owasp.org/index.php/East_Sweden">OWASP East Sweden</a></span>
-                        <span>Important link 2</span>
-                        <br />
-                        <ul>
-                            <li>Kontakt 2:</li>
-                            <li>Gustav Nyqvist</li>
-                            <li>Knowit Secure</li>
-                            <li>072-705 20 40</li>
-                        </ul>
-                    </div>
-                    <div class="columns">
-                        <h2>About le Bank</h2>
-                        <p>Testgatan 12</p>
-                        <p>12271 Barnaby</p>
-                        <p>Telefon: 123-345 67 89</p>
-                        <p>E-post: test@test.ru</p>
-                        <p>This site is built purely for testing purposes ...</p>
-                        <p>... and contains numerous vulnerabilities</p>
-                    </div>
-                    <div class="clear">
-                        <!-- -->
-                    </div>
+            <div class="footer-menu">
+                <div class="columns">
+                    <ul>
+                        <li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></li>
+                        <li><a href="https://www.owasp.org/index.php/OWASP_Testing_Project">OWASP Testing Guide</a></li>
+                        <li><a href="https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series">OWASP Cheat Sheets</a></li>
+                    </ul>
                 </div>
-                <hr />
-                <div class="disclaimer">Any resemblance to other bank sites is purely accidental</div>
+                <div class="columns">
+                    <ul>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+                <div class="columns">
+                    <ul>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+                <div class="columns">
+                    <ul>
+                        <li><a href="http://knowitsecure.se/">Knowit Secure</a></li>
+                        <li><a href="https://www.owasp.org/index.php/East_Sweden">OWASP East Sweden</a></li>
+                        <li><a href="https://github.com/herrbengtsson/TheVulnBank">GitHub</a></li>
+                    </ul>
+                </div>
                 <div class="clear">
                     <!-- -->
                 </div>
+            </div>
+            <hr />
+            <div class="disclaimer">
+                The VulnBank is a deliberately vulnerable webapplication (resembling an online bank) for use in security awereness training.
+                <b>This is not a real bank.</b> Any resemblance to a real bank site is purely accidental.
+                The application is littered with vulnerabilities and is intentially bad written (please don't hold it against us).
+                <b>Do not install this application on you system if you don't know what you're doing!</b>
+            </div>
+            <div class="clear">
+                <!-- -->
             </div>
         </div>
     </div>

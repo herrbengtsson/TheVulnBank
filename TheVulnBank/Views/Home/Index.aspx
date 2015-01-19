@@ -2,15 +2,18 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Le Bank</h2>
+<img src="<%: Request.Url.AbsolutePath.ToString() %>Show/Img/?file=1065245_79106935.jpg&width=300&height=300" style="float: right; margin: -20px;" />
 
-<p>Welcome to le bank</p>
+<h2>Welcome to your totally trustworthy bank site!</h2>
 
-<% if ((bool)ViewData["IsAuthenticated"]) { %>
-    <a href="<%: Url.Action("Index", "Account") %>">Show accounts</a><br />
-    <a href="<%: Url.Action("Index", "User") %>">Show profile</a><br />
-<% } else { %>
-    <a href="<%: Url.Action("Index", "Login") %>">Sign in</a>
-<% } %>
+<p>
+    Ever heard of XSS, CSRF or SQL Injection? Neither have we! But we don't really care
+    about all that mombo jumbo, all we care about is money. And boy, we're gonna get rich -
+    you and I!
+</p>
+
+<p><i>The vulnerable bank - where every bug is a feature</i></p>
+
+<div class="clear"><!-- --></div>
 
 </asp:Content>

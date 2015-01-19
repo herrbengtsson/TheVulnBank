@@ -43,10 +43,23 @@ namespace TheVulnBank.Controllers
 
             return View(result);
         }
-
-        private SearchRepository GetSearchRepo()
+	
+        [ValidateInput(false)]
+        public ActionResult Index(string q)
+        {
+            ArticleRepository articleRepository = new ArticleRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
+            List<Article> articles = articleRepository.SearchArticles(q);
+            return View(new Search
+            {
+                Query = q,
+                Articles = articles,
+            });
+        }
+		
+		private SearchRepository GetSearchRepo()
         {
             return new SearchRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
-        }
+		}
+	
     }
 }
