@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
         <h2>Wondering about something?</h2>
-
         <div class="contact-info">
             <p><b>Plz contact us at:</b></p>
             <p>Testgatan 12</p>
@@ -24,7 +23,6 @@
                 <!-- -->
             </div>
         </div>
-
         <% foreach (TheVulnBank.Models.Data.Question q in Model.Items)
            { %>
             <div class="question-item-container">
@@ -41,5 +39,4 @@
             </div>
         <% } %>
     </div>
-
 </asp:Content>
