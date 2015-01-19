@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2><%: Model.Title %></h2>
+<h2><%= Model.Title %></h2>
 
-<%: Model.Text %>
+<%= Model.Text %>
 
 </asp:Content>
