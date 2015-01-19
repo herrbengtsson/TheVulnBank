@@ -35,5 +35,19 @@ namespace TheVulnBank.Repositories
                 return defaultValue;
             }
         }
+
+        public static bool SafeGetBoolean(this SqlDataReader reader, string columnName, bool defaultValue)
+        {
+            int ordinal = reader.GetOrdinal(columnName);
+
+            if (!reader.IsDBNull(ordinal))
+            {
+                return reader.GetBoolean(ordinal);
+            }
+            else
+            {
+                return defaultValue;
+            }
+        }
     }
 }

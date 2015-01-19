@@ -12,14 +12,14 @@ namespace TheVulnBank.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(new Search() { Articles = new List<Article>() });
         }
 
         [HttpGet]
         public ActionResult Index(string q, string noOfItems = "5")
         {
             // Blind SQLI
-            var result = new SearchResult() { Items = new List<SearchItem>() };
+            var result = new Search() { Articles = new List<Article>() };            
 
             int noOfItemsParsed;
 
@@ -33,7 +33,8 @@ namespace TheVulnBank.Controllers
             {
                 try
                 {
-                    result.Items = GetSearchRepo().Search(q, noOfItems);
+                    result.Query = q;
+                    result.Articles = GetArticleRepo().SearchArticles(q, noOfItems);
                 }
                 catch (System.Exception)
                 {
@@ -43,23 +44,10 @@ namespace TheVulnBank.Controllers
 
             return View(result);
         }
-	
-        [ValidateInput(false)]
-        public ActionResult Index(string q)
-        {
-            ArticleRepository articleRepository = new ArticleRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
-            List<Article> articles = articleRepository.SearchArticles(q);
-            return View(new Search
-            {
-                Query = q,
-                Articles = articles,
-            });
-        }
 		
-		private SearchRepository GetSearchRepo()
+		private ArticleRepository GetArticleRepo()
         {
-            return new SearchRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
+            return new ArticleRepository(new SqlConnection(ConfigurationManager.ConnectionStrings["TheVulnBankDB"].ConnectionString));
 		}
-	
     }
 }
