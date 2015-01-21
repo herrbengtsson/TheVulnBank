@@ -21,6 +21,10 @@ namespace TheVulnBank.Controllers
             userIdCookie.Expires = DateTime.Now.AddHours(-8);
             Response.SetCookie(userIdCookie);
 
+            HttpCookie userNameCookie = new HttpCookie("Username");
+            userNameCookie.Expires = DateTime.Now.AddHours(-8);
+            Response.SetCookie(userNameCookie);
+
             return RedirectToAction("Index", "Home");
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace TheVulnBank.Controllers
@@ -7,6 +8,7 @@ namespace TheVulnBank.Controllers
     {
         protected bool isAuthenticated = false;
         protected int userId = 0;
+        protected string username = String.Empty;
 
         protected override void Initialize(RequestContext requestContext) 
         {
@@ -24,10 +26,13 @@ namespace TheVulnBank.Controllers
                 if (isAuthenticated)
                 {
                     userId = int.Parse(request.Cookies["UserId"].Value);
+                    username = request.Cookies["Username"].Value;
                 }
             }
 
             ViewData.Add("IsAuthenticated", isAuthenticated);
+            ViewData.Add("UserId", userId);
+            ViewData.Add("Username", username);
         }
 
     }

@@ -154,7 +154,13 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Resources\CSS\Default.css" />
-    <Content Include="Resources\Images\magnifier.png" />
+    <Content Include="Resources\Images\Icons\add.png" />
+    <Content Include="Resources\Images\Icons\delete.png" />
+    <Content Include="Resources\Images\Icons\information.png" />
+    <Content Include="Resources\Images\Icons\magnifier.png" />
+    <Content Include="Resources\Images\Icons\money.png" />
+    <Content Include="Resources\Images\Icons\money_add.png" />
+    <Content Include="Resources\Images\Icons\money_delete.png" />
     <Content Include="Resources\Images\Stock\1065245_79106935.jpg" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Account\Transfer.aspx" />
@@ -167,7 +173,9 @@
     <Content Include="Views\Search\Index.aspx" />
     <Content Include="Views\User\ChangePassword.aspx" />
     <Content Include="Views\User\ShowUser.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -186,6 +194,7 @@
     <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\Pub.pubxml" />
   </ItemGroup>
   <PropertyGroup>

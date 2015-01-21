@@ -27,7 +27,7 @@
                     <li><%:Html.ActionLink("Pension", "Index", new { controller = "Article", id = 5 })%></li>
                     <li><%:Html.ActionLink("Insurance", "Index", new { controller = "Article", id = 7 })%></li>
                     <li><%:Html.ActionLink("Customer service", "Index", new { controller = "Article", id = 8 })%></li>        
-                    <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Sign out", "Index", "Logout") : Html.ActionLink("Sign in", "Index", "Login")) %></li>
+                    <li class="login"><%= ((bool)ViewData["IsAuthenticated"] ? Html.ActionLink("Sign out (" + ViewData["Username"] + ")", "Index", "Logout") : Html.ActionLink("Sign in", "Index", "Login")) %></li>
                 </ul>
             </div>
             <% if ((bool) ViewData["IsAuthenticated"]) { %>

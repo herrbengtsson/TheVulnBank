@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<img src="<%: Request.Url.AbsolutePath.ToString() %>Show/Img/?file=1065245_79106935.jpg&width=300&height=300" style="float: right; margin: -20px;" />
+<img src="<%: Url.Content("~/") %>Show/Img/?file=1065245_79106935.jpg&width=300&height=300" style="float: right; margin: -20px;" />
 
 <h2>Welcome to your totally trustworthy bank site!</h2>
 
