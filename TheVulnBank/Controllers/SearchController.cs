@@ -16,6 +16,7 @@ namespace TheVulnBank.Controllers
         }
 
         [HttpGet]
+        [ValidateInput(false)]
         public ActionResult Index(string q, string noOfItems = "5")
         {
             // Blind SQLI
